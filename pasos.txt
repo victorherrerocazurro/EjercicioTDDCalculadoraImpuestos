@@ -8,5 +8,34 @@ Obtener los impuestos según los ingresos siguiendo las siguientes reglas:
 	25000 < Ingreso paga 19.5% de impuestos.
 	
 2-Preguntas
-	¿Que precision emplear?
-	¿Pueden darse ingresos negativos?¿Cual es el minimo y el maximo?
+	¿Que precision emplear? Dos decimales.
+	¿Pueden darse ingresos negativos?No
+	¿Cual es el minimo y el maximo? min = 0 y maximo 999.999.999.999.999.999,99
+	
+	¿Que sucede si se superan los limites del calculo?(Nueva pregunta que surge al elaborar los casos de prueba del apartado 3)
+	¿Que sucede si los resultados ofrecen mas de dos decimales?¿se redondea?¿se trunca?(Nueva pregunta que surge al elaborar los casos de prueba del apartado 3)
+	
+3-Casos de prueba sobre los requisitos (Basados en ejemplos concretos)
+	Limites de la precision correctos:
+		1-Si el ingreso es de 0, el impuesto es 0
+		2-Si el ingreso es de 9.999.999.999.999.999, el impuesto es de 1.950.000.000.000.000
+	Limites de la precision incorrectos (Los valores de prueba aqui son los inmediatamente inferiores segun la precision):
+		3-Si el ingreso es -0,01, el impuesto es ?
+		4-Si el ingreso es 9.999.999.999.999.999,01, el impuesto es ?
+	Se puede ir mas lejos, saliendo de la precisión esperada
+		5-Si el ingreso es -0,001, el impuesto es ?
+		6-Si el ingreso es 9.999.999.999.999.999,001, el impuesto es ?
+	Rangos
+		7-Si el ingreso es 800, el impuesto es 0 (No es necesario, ya que tenemos una prueba anterior, la 1, que ya aporta otro valor a este caso)
+		8-Si el ingreso es de 7999,99, el impuesto es de 0
+		9-Si el ingreso es 8000, el impuesto es 0
+		10-Si el ingreso es de 8000,01, el impuesto es de ? (real 640,0008)
+		11-Si el ingreso es 14999,99, el impuesto es  
+		12-Si el ingreso es 15000, el impuesto es 
+		13-Si el ingreso es 15000,01, el impuesto es  
+		14-Si el ingreso es 19999,99, el impuesto es 
+		15-Si el ingreso es 20000, el impuesto es
+		16-Si el ingreso es 20000,01, el impuesto es 
+		17-Si el ingreso es 24999,99, el impuesto es
+		18-Si el ingreso es 25000, el impuesto es
+		19-Si el ingreso es 25000,01, el impuesto es
