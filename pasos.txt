@@ -1,0 +1,12 @@
+1-Requisitos:
+
+Obtener los impuestos según los ingresos siguiendo las siguientes reglas:
+	Ingreso <= 8000 no paga impuestos.
+	8000 < Ingreso <= 15000 paga 8% de impuestos.
+	15000 < Ingreso <= 20000 paga 10% de impuestos.
+	20000 < Ingreso <= 25000 paga 15% de impuestos.
+	25000 < Ingreso paga 19.5% de impuestos.
+	
+2-Preguntas
+	¿Que precision emplear?
+	¿Pueden darse ingresos negativos?¿Cual es el minimo y el maximo?
