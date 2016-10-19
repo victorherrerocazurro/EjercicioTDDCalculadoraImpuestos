@@ -1,7 +1,5 @@
 package com.ejemplo.tdd.calculadora;
 
-import static org.junit.Assert.fail;
-
 import java.math.BigDecimal;
 
 import org.junit.Assert;
@@ -22,17 +20,17 @@ public class LimitesPrecisionUT {
 	public void limiteDePrecisionCorrectoCasoDePrueba1() {
 		
 		//Datos de prueba
-		float ingreso = 0;
-		float impuestoEsperado = 0;
+		BigDecimal ingreso = BigDecimal.valueOf(0.195d);
+		BigDecimal impuestoEsperado = BigDecimal.valueOf(0);
 		
 		//Definicion de SUT
 		CalculadoraImpuestos sut = new CalculadoraImpuestos();
 		
 		//Ejecución del codigo
-		float impuestoObtenido = sut.calcularImpuestosDeIngresos(ingreso);
+		BigDecimal impuestoObtenido = sut.calcularImpuestosDeIngresos(ingreso);
 		
 		//Validacion
-		Assert.assertEquals(impuestoEsperado, impuestoObtenido, 0.001);
+		Assert.assertEquals(impuestoEsperado, impuestoObtenido);
 	}
 
 	/**
@@ -43,20 +41,27 @@ public class LimitesPrecisionUT {
 	public void limiteDePrecisionCorrectoCasoDePrueba2() {
 
 		//Datos de prueba
-		float ingreso = 9_999_999_999_999_999f;
+		BigDecimal ingreso = BigDecimal.valueOf(9_999_999_999_999_999d);
 		
-		//Con la precisión float, no se consigue la precision adecuada, 
-		//asi que se necesita que sea double
-		double impuestoEsperado = 1_950_000_000_000_000d;
+		//Con la precisión float, no se consigue la precision adecuada,
+		//ya que la representacion del numero es 1.949999977988096E15,
+		//asi que pasamos a double, como hay problemas con double, debemos pasar a BigDecimal
+		
+		//setScale será necesario si queremos que la comparacion con equals no de problemas
+		
+		BigDecimal impuestoEsperado = BigDecimal.valueOf(1_950_000_000_000_000d);//.setScale(2);
 		
 		//Definicion de SUT
 		CalculadoraImpuestos sut = new CalculadoraImpuestos();
 		
 		//Ejecución del codigo
-		float impuestoObtenido = sut.calcularImpuestosDeIngresos(ingreso);
+		BigDecimal impuestoObtenido = sut.calcularImpuestosDeIngresos(ingreso);
 		
 		//Validacion
-		Assert.assertEquals(impuestoEsperado, impuestoObtenido, 0.001);
+		//Assert.assertEquals(impuestoEsperado, impuestoObtenido);
+		
+		//Alternativa a definir el scale, que emplea compareTo, en lugar de equals.
+		Assert.assertTrue(impuestoEsperado.compareTo(impuestoObtenido) == 0);
 	}
 	
 }
