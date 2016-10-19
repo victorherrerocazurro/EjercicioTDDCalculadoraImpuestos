@@ -39,3 +39,5 @@ Obtener los impuestos según los ingresos siguiendo las siguientes reglas:
 		17-Si el ingreso es 24999,99, el impuesto es
 		18-Si el ingreso es 25000, el impuesto es
 		19-Si el ingreso es 25000,01, el impuesto es
+		
+4-Codificar los casos de prueba uno a uno.
